@@ -72,4 +72,16 @@ def test_it_can_remove_card
   assert_equal 50.0, deck.percent_high_ranking
 end
 
+def test_it_can_add_card
+  # card1 = Card.new(:diamond, 'Queen', 12) #removed
+  card2 = Card.new(:spade, 'King', 3)
+  card3 = Card.new(:heart, 'Ace', 14)
+  card4 = Card.new(:club, '5', 5)
+  cards = [card2, card3]
+  deck = Deck.new(cards)
+  assert_equal [card2, card3, card4], deck.add_card(card4)
+  assert_equal [card2, card3, card4], deck.cards
+  assert_equal [card3], deck.high_ranking_cards
+  assert_equal 33.33, deck.percent_high_ranking
+end
 end

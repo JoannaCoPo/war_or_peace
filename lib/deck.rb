@@ -30,4 +30,8 @@ class Deck
     cards_in_deck = @cards
     cards_in_deck.shift
   end
+
+  def add_card(card4)
+    new_card_arr = @cards << card4
+  end
 end
