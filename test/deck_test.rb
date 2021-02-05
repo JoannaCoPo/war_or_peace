@@ -60,5 +60,14 @@ def test_percent_of_high_ranking_cards
   assert_equal 66.67, deck.percent_high_ranking
 end
 
+def test_it_can_remove_card
+  card1 = Card.new(:diamond, 'Queen', 12)
+  card2 = Card.new(:spade, 'King', 3)
+  card3 = Card.new(:heard, 'Ace', 14)
+  cards = [card1, card2, card3]
+  deck = Deck.new(cards)
+  assert_equal card1, deck.remove_card
+  assert_equal [card2, card3], deck.cards
+end
 
 end
