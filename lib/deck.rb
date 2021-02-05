@@ -22,6 +22,7 @@ class Deck
     high_cards = @cards.find_all do |card|
       card.rank >= 11
     end
-    high_cards.count.to_f / @cards.count.to_f
+    percent = high_cards.count.to_f / @cards.count.to_f
+    percent.round(4) * 100
   end
 end
