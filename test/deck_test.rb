@@ -70,6 +70,7 @@ def test_it_can_remove_card
   assert_equal card1, deck.remove_card
   assert_equal [card3], deck.high_ranking_cards
   assert_equal 50.0, deck.percent_high_ranking
+  binding.pry
 end
 
 def test_it_can_add_card
@@ -82,6 +83,6 @@ def test_it_can_add_card
   assert_equal [card2, card3, card4], deck.add_card(card4)
   assert_equal [card2, card3, card4], deck.cards
   assert_equal [card3], deck.high_ranking_cards
-  assert_equal 33., deck.percent_high_ranking
+  assert_equal 33.0, deck.percent_high_ranking
 end
 end
