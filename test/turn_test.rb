@@ -40,6 +40,10 @@ class TurnTest < Minitest::Test
     turn = Turn.new(player1, player2)
     assert_equal player1, turn.player1_t
     assert_equal player2, turn.player2_t
+    assert_equal [], turn.spoils_of_war
+    # binding.pry
+    assert_equal :basic, turn.type
+    assert_equal player1, turn.turn_winner
   end
 
   end
