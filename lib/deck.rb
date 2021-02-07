@@ -1,6 +1,5 @@
 class Deck
   attr_reader :cards
-# ^^only for IV's
 
   def initialize(cards)
     @cards = cards
@@ -27,12 +26,11 @@ class Deck
   end
 
   def remove_card
-    cards_in_deck = @cards
-    cards_in_deck.shift
+    @cards.shift
     # cards_in_deck.pop
   end
 
   def add_card(card4)
-    new_card_arr = @cards << card4
+    @cards << card4
   end
 end

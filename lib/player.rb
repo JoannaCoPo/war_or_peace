@@ -10,9 +10,4 @@ class Player
     @player.deck.cards == []
   end
 
-  def remove_card
-    @deck.cards.shift
-    # @deck.cards.pop
-  end
-
 end
