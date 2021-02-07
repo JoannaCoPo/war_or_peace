@@ -29,7 +29,7 @@ class Turn
       :basic
     elsif war_check
       :war
-    else mutually_assured_destruction?
+    else war_check && mad_check
       :mutually_assured_destruction
     end
   end
