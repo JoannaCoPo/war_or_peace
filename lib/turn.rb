@@ -61,26 +61,30 @@ class Turn
   def pile_cards
     #for a :basic turn, each player will send one card
     #(the top card) to the spoils pile
-    if :basic
+    if type == :basic
       spoils_of_war << player1.deck.remove_card
       spoils_of_war << player2.deck.remove_card
 
-    elsif :war
+    elsif type == :war
     #for a :war turn, each player will send three cards (the top three cards)
     #to the spoils pile
-      3.times {
+      3.times do
         spoils_of_war << player1.deck.remove_card
         spoils_of_war << player2.deck.remove_card
-      }
+      end
     #:mutually_assured_destruction turn, each player will remove three
     #cards from play (the top three cards in their deck). These cards are not
     #sent to the spoils pile, they are simply removed from each players’ deck.
-    else :mutually_assured_destruction
-      3.times {
+  elsif type == :mutually_assured_destruction
+      3.times do
         player1.deck.remove_card
         player2.deck.remove_card
-      }
+      end
     end
+  end
+
+  def award_spoils(winner)
+    winner.deck.cards.concat(spoils_of_war)
   end
 
 end
