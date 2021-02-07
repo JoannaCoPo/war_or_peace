@@ -7,12 +7,12 @@ class Player
   end
 
   def has_lost?
-    return true if deck.cards == []
+    return true if @deck.cards == []
     false
   end
 
   def remove_card
-    deck.cards.shift
+    @deck.cards.shift
   end
 
 end
