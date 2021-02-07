@@ -35,8 +35,7 @@ class Turn
     end
   end
 
-  def winner #issue here - check state of object
-    #:basic, it will return whichever player has a higher rank_of_card_at(0)
+  def winner
     if type == :basic
       player1_wins = player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
       if player1_wins
@@ -45,7 +44,6 @@ class Turn
         player2
       end
     elsif type == :war
-    #:war the winner will be whichever player has a higher rank_of_card_at(2)
       player1_wins = player1.deck.rank_of_card_at(2) > player.deck.rank_of_card_at(2)
       if player1_wins
         player1
@@ -53,28 +51,22 @@ class Turn
         player2
       end
     else type == :mutually_assured_destruction
-      #:mutually_assured_destruction the method will return No Winner.
       'No Winner'
     end
   end
 
   def pile_cards
-    #for a :basic turn, each player will send one card
-    #(the top card) to the spoils pile
+
     if type == :basic
       spoils_of_war << player1.deck.remove_card
       spoils_of_war << player2.deck.remove_card
 
     elsif type == :war
-    #for a :war turn, each player will send three cards (the top three cards)
-    #to the spoils pile
       3.times do
         spoils_of_war << player1.deck.remove_card
         spoils_of_war << player2.deck.remove_card
       end
-    #:mutually_assured_destruction turn, each player will remove three
-    #cards from play (the top three cards in their deck). These cards are not
-    #sent to the spoils pile, they are simply removed from each players’ deck.
+     removed from each players’ deck.
   elsif type == :mutually_assured_destruction
       3.times do
         player1.deck.remove_card
