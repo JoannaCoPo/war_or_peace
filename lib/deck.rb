@@ -6,8 +6,7 @@ class Deck
   end
 
   def rank_of_card_at(index)
-    single_card = @cards[index] #generic
-    single_card.rank
+    @cards[index].rank
   end
 
   def high_ranking_cards # return an array of cards in the deck that have a rank of 11+
