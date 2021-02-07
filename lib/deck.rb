@@ -29,6 +29,7 @@ class Deck
   def remove_card
     cards_in_deck = @cards
     cards_in_deck.shift
+    # cards_in_deck.pop
   end
 
   def add_card(card4)
