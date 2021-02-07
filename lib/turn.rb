@@ -19,18 +19,18 @@ class Turn
   end
 
   def type
-    if :basic #consfused about syntax here, check later
     #:basic turn is one in which the rank_of_card_at(0) from the players’ decks are not the same rank.
-    player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
-    # return :basic
-
-  elsif war?
+    basic_check = player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
     #:war turn occurs when both players’ rank_of_card_at(0) are the same.
-      player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
-
-    else mutually_assured_destruction?
+    war_check = player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
     #:mutually_assured_destruction occurs when both players’ rank_of_card_at(0) AND rank_of_card_at(2) are the same.
-      player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
+    mad_check = player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
+    if basic_check
+      :basic
+    elsif war_check
+      :war
+    else mutually_assured_destruction?
+      :mutually_assured_destruction
     end
   end
 
