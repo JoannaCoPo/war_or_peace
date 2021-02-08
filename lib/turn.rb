@@ -19,11 +19,8 @@ class Turn
   end
 
   def type
-    #:basic turn is one in which the rank_of_card_at(0) from the players’ decks are not the same rank.
     basic_check = player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
-    #:war turn occurs when both players’ rank_of_card_at(0) are the same.
     war_check = player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
-    #:mutually_assured_destruction occurs when both players’ rank_of_card_at(0) AND rank_of_card_at(2) are the same.
     mad_check = player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
 
     if basic_check
@@ -66,8 +63,8 @@ class Turn
         spoils_of_war << player1.deck.remove_card
         spoils_of_war << player2.deck.remove_card
       end
-     removed from each players’ deck.
-  elsif type == :mutually_assured_destruction
+
+    elsif type == :mutually_assured_destruction
       3.times do
         player1.deck.remove_card
         player2.deck.remove_card
